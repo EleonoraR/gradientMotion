@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spiral Gradient Motion</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+  }
+
+  .spiral-container {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, 
+      #ff51bc, #ff78cb, #ffa500, #ffff00, #adff2f, #00ff00, 
+      #00fa9a, #00ffff, #1e90ff, #0000ff, #4b0082, #8b00ff);
+    background-size: 300% 300%;
+    animation: gradientShift 6s infinite linear, rotateSpiral 12s infinite linear;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes rotateSpiral {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  h1 {
+    position: relative;
+    color: white;
+    font-size: 3rem;
+    z-index: 10;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+</style>
+</head>
+<body>
+  <div class="spiral-container"></div>
+  <h1>Spiral Gradient Motion</h1>
+</body>
+</html>
